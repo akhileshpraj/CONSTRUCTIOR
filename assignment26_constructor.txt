@@ -1,0 +1,334 @@
+1.
+#include<iostream>
+using namespace std;
+class Complex
+{
+    private:
+    int a,b;
+    public:
+    void setdata(int x,int y)
+    {
+        a=x,b=y;
+    }
+    void showdata()
+    {
+        cout<<"real= "<<a<<"imag= "<<b<<endl;
+    }
+    Complex add(Complex C)
+    {
+        Complex temp;
+        temp.a=a+C.a;
+        temp.b=b+C.b;
+    }
+};
+int main()
+{
+    Complex c1,c2,c3;
+    c1.setdata(8,9);
+    c2.setdata(7,5);
+    c3=c1.add(c2);
+    c1.showdata();
+    c2.showdata();
+    c3.showdata();
+    cout<<endl;
+    return 0;
+}
+2.
+#include<iostream>
+using namespace std;
+class time
+{
+    private:
+    int hr,mm,sec;
+    public:
+    void settime(int a,int b,int c)
+    {
+        hr=a,mm=b,sec=c;
+    }
+    void showtime()
+    {
+       cout<<"hr:"<<hr<<"mm:"<<mm<<"sec:"<<sec<<endl;
+    }
+    void normalize()
+    {
+        mm=mm+sec/60;
+        sec=sec%60;
+        hr=hr+mm/60;
+        mm=mm%60;
+    }
+    time add(time t)
+    {
+        time temp;
+        temp.sec=sec+t.sec;
+        temp.mm=mm+t.mm;
+        temp.hr=hr+t.hr;
+        temp.normalize();
+        return (temp);
+    }
+};
+int main()
+{
+    time t1,t2,t3;
+    t1.settime(4,34,45);
+    t2.settime(7,45,56);
+    t3=t1.add(t2);
+    t1.showtime();
+     t2.showtime();
+      t3.showtime();
+      cout<<endl;
+      return 0;
+}
+3.
+#include<iostream>
+using namespace std;
+class Cube
+{
+    public:
+    double side;
+    double volume()
+    {
+        return side*side*side;
+
+    }
+    Cube(double s1)
+    {
+        cout<<"constructor is called"<<endl;
+        side=s1;
+    }
+    Cube()
+    {
+        cout<<"defacult constructor "<<endl;
+    }
+};
+int main()
+{
+    Cube c1(2.56);
+    Cube c2;
+    cout<<"side of the cube is"<<c1.side<<endl;
+    cout<<c1.volume()<<endl;
+    cout<<"input the value"<<endl;
+    cin>>c2.side;
+    cout<<c2.volume();
+    cout<<endl;
+    return 0;
+}
+4
+#include<iostream>
+using namespace std;
+class counter
+{
+    private:
+     static int count;
+    public:
+    counter()
+    {
+        count++;
+    }
+    void setcounter()
+    {
+        count++;
+    }
+    int getcounter()
+    {
+        return count;
+    }
+};
+ int counter:: count;
+int main()
+{
+    counter c1,c2,c3;
+    c1.getcounter();
+     cout<< c1.getcounter();
+     return 0;
+}
+
+5
+#include<iostream>
+using namespace std;
+class Date
+{
+    private:
+    int day;
+    int month;
+    int year;
+    public:
+    Date(int a,int b,int c)
+    {
+        day=a,month=b,year=c;
+    }
+    void showdata()
+    {
+        cout<<"days: "<<day<<"month: "<<month<<"year: "<<year<<endl;
+    }
+};
+int main()
+{
+    Date d1(3,5,2023);
+    d1.showdata();
+    cout<<endl;
+    return 0;
+}
+6
+#include<iostream>
+using namespace std;
+class Student
+{
+    private:
+    char name;
+    int roll ,marks;
+    public:
+    Student(char x,int y,int z)
+    {
+        name=x,roll=y,marks=z;
+    }
+    void Findstudentdetails()
+    {
+        cout<<"name:="<<name<<"Roll :="<<roll<<"marks:="<<marks<<endl;
+    }
+};
+int main()
+{
+    Student s1('A',20,100);
+    s1.Findstudentdetails();
+
+}
+7.
+#include<iostream>
+using namespace std;
+class Box
+{
+    private:
+    float lenth,breath,height;
+    public:
+    Box(float l,float b,float h)
+    {
+        lenth=l,breath=b,height=h;
+    }
+    float volume()
+    {
+        return lenth*breath*height;
+    }
+};
+int main()
+{
+    Box b1(2.3,4.5,6.6);
+    b1.volume();
+    cout<<" box of volume is "<< b1.volume();
+    return 0;
+}
+8.
+#include<iostream>
+using namespace std;
+class Bank
+{
+    private:
+    int principle,rate,year,si;
+    public:
+    void get()
+    {
+        cout<<"enter a bank deytailsin interset:- "<<endl;
+        cout<<"bank of principle: "<<endl;
+        cin>>principle;
+        cout<<"rate of interset: "<<endl;
+        cin>>rate;
+        cout<<"year of interest: "<<endl;
+        cin>>year;
+    }
+    void put()
+    {
+        cout<<"\nenter of bank details in interset:-"<<endl;
+        cout<<"\ninterest of principle:="<<principle;
+        cout<<"\nrate of interset:="<<rate<<endl;
+        cout<<"\n\nyear of interset:-"<<year<<endl;
+        cout<<"\n\nsimple interset is:- "<<si<<endl;
+    }
+    void calculate_simpleinterset()
+    {
+        si=(principle*rate*year)/100;
+    }
+};
+int main()
+{
+    Bank b1;
+    b1.get();
+    b1.calculate_simpleinterset();
+    b1.put();
+    cout<<endl;
+    return 0;
+}
+9.
+#include<iostream>
+using namespace std;
+class Bill
+{
+    private:
+    int consumer_no;
+    char customer_name[20];
+    int units;
+    double bill;
+    public:
+    void get()
+    {
+        cout<<"Enter details of customer below:-"<<endl;
+        cout<<"consumer number"<<endl;
+        cin>>consumer_no;
+        cout<<"customer name is:-"<<endl;
+        cin>>customer_name;
+        cout<<"Pay of uints:-"<<endl;
+        cin>>units;
+    }
+    void put()
+    {
+         cout<<"Enter details of customer below:-"<<endl;
+         cout<<"\nconsumer nos is "<<consumer_no;
+         cout<<"\ncustomer name is:-"<<customer_name;
+         cout<<"\n\npay of units is:-"<<units;
+         cout<<"\n\nbill of customer:-"<<bill;
+    }
+    void calcultebill()
+    {
+        if(units<=100)
+        bill=units*1.20;
+        else if(units<=200)
+        bill=units*1.20+(units-100)*2;
+        else
+        bill=100*1.20+200*2+(units-200)*3;
+    }
+};
+int main()
+{
+    Bill b1;
+    b1.get();
+    b1.calcultebill();
+    b1.put();
+    cout<<endl;
+    return 0;
+}
+10.
+#include<iostream>
+using namespace std;
+class Static
+{
+    private:
+    static int count;
+    public:
+    Static ()
+    {
+        count++;
+    }
+    int getcount()
+    {
+        return count;
+    }
+};
+int Static::count;
+int main()
+{
+    Static s1,s2,s3;
+    s1.getcount();
+    cout<< s1.getcount();
+
+}
+
+
+
